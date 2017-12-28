@@ -1,0 +1,7 @@
+3. 'findContactIndex' and getTenDigitPhone are useful because they help make the code easier to read and make it work, 
+particularly in the getnumbers functions. This would help because it organizes everything properly and there are less
+words to write and can be easily identified without having to look through lots of code.
+
+4. I learned that there are many function definitions that help organize the code and creates less hassle for the coder to
+handle because we need a bunch of function definitions in order to help define all the extra code that is being written.
+This would make everything more efficient as a result.
