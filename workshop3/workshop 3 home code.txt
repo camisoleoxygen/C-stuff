@@ -1,0 +1,76 @@
+//Hoh-il (Julian) Synn
+//142176163
+//jsynn@myseneca.ca
+//Assignment 3 - While loops and If statements
+
+
+#include <stdio.h>            
+#define NUM 4
+
+int main(void)
+{
+    float high = 0;
+    float low = 0;
+    float totalHigh = 0;
+    float totalLow = 0;
+    float averageTemp = 0;
+    int days = 0;
+    float highest = 0;
+    float lowest = 0;
+    int highestDay = 0;
+    int lowestDay = 0;
+
+
+    printf("---=== IPC Temperature Analyzer ===---\n");
+    for (int i = 0; i < NUM; i++) {
+
+
+        printf("Enter the high value for day %d: ", i + 1);
+        scanf("%f", &high);
+
+
+        printf("Enter the low value for day %d: ", i + 1);
+        scanf("%f", &low);
+
+        while (high > 40 || low < -41 || high < low) {
+
+            printf("Incorrect values, temperatures must be in the range -40 to 40, high must be greater than low.\n");
+            printf("Enter the high value for day %d: ", i + 1);
+            scanf("%f", &high);
+
+
+            printf("Enter the low value for day %d: ", i + 1);
+            scanf("%f", &low);
+        }
+
+        totalHigh = totalHigh + high;
+        totalLow = totalLow + low;
+        days = days + 2;
+
+        // highest and lowest
+        if (high > highest) {
+            highest = high;
+            highestDay = i + 1;
+        }
+
+        if (lowest > low) {
+            lowest = low;
+            lowestDay = i + 1;
+        }
+    }
+
+    /*NUM = 30;*/
+    //do {
+    // NUM--;
+    // printf("Incorrect value, temperatures must be in the range -40 to 40, high must be greater than low.");
+    //}
+    averageTemp = (totalHigh + totalLow) / days;
+
+    printf("The Average (mean) temperature was: %.2lf\n", averageTemp);
+    printf("The highest temperature was %d, on day %d\n", (int)highest, highestDay);
+    printf("The lowest temperature was %d, on day %d\n", (int)lowest, lowestDay);
+
+
+    system("pause");
+    return 0;
+}
