@@ -1,0 +1,176 @@
+/*
+Name: Hoh-il (Julian) Synn
+Student number: 142176163
+Email: jsynn@myseneca.ca
+Workshop: 5; Structures
+Section: IPC144SWW
+Date: Oct 13, 2017
+*/
+
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+
+// Define Number of Employees "SIZE" to be 2
+#define SIZE 4
+
+// Declare Struct Employee
+struct Employee {
+    int idNumber;
+    int age;
+    double salary;
+};
+
+//emp object array of type employee
+struct Employee emp[SIZE] = { 0 };
+
+/* main program */
+int main(void) {
+
+    int size = 0;
+    int counter = 0;
+    int i = 0;
+    int option = 0;
+
+    int tempId = 0;
+    int FOUND;
+
+    printf("---=== EMPLOYEE DATA ===---\n\n");
+
+    // Declare a struct Employee array "emp" with SIZE elements
+    // and initialize all elements to zero
+
+    do {
+        // Print the option list
+        printf("1. Display Employee Information\n");
+        printf("2. Add Employee\n");
+        printf("3. Update Employee Salary\n");
+        printf("4. Remove Employee\n");
+        printf("0. Exit\n\n");
+        printf("Please select from the above options: ");
+
+        // Capture input to option variable
+        scanf("%d", &option);
+        printf("\n");
+
+        switch (option) {
+        case 0: // Exit the program
+
+            break;
+        case 1: // Display Employee Data
+                // @IN-LAB
+
+            printf("EMP ID  EMP AGE EMP SALARY\n");
+            printf("======  ======= ==========\n");
+            for (i = 0; i < SIZE; i++) {
+                if (emp[i].idNumber > 0) {
+                    printf("%6d%9d%11.2lf\n", emp[i].idNumber, emp[i].age, emp[i].salary);
+                }
+            }
+            printf("\n");
+
+            // Use "%6d%9d%11.2lf" formatting in a   
+            // printf statement to display
+            // employee id, age and salary of
+            // all  employees using a loop construct
+
+            // The loop construct will be run for SIZE times
+            // and will only display Employee data
+            // where the EmployeeID is > 0
+
+            break;
+        case 2: // Adding Employee
+                // @IN-LAB
+
+            printf("Adding Employee\n");
+            printf("===============\n");
+
+            // Check for limits on the array and add employee
+            // data accordingly.
+
+            if (counter < SIZE) {
+                printf("Enter Employee ID: ");
+                scanf("%d", &emp[size].idNumber);
+
+                printf("Enter Employee Age: ");
+                scanf("%d", &emp[size].age);
+
+                printf("Enter Employee Salary: ");
+                scanf("%lf", &emp[size].salary);
+                printf("\n");
+
+                size++;
+                counter++;
+            }
+
+            else {
+                printf("ERROR! Maximum Number of Employees Reached\n\n");
+            }
+
+            break;
+        case 3:
+
+
+            printf("Update Employee Salary\n");
+            printf("----------------------\n");
+
+            FOUND = 0;
+            do {
+
+                printf("Enter Employee ID: ");
+                scanf("%d", &tempId);
+
+                for (i = 0; i < SIZE; i++) {
+                    if (tempId == emp[i].idNumber) {
+                        printf("The current salary is %.2lf\n", emp[i].salary);
+                        printf("Enter Employee New Salary: ");
+                        scanf("%lf", &emp[i].salary);
+                        printf("\n");
+                        FOUND = 1;
+                    }
+                }
+            } while (FOUND == 0);
+            break;
+
+        case 4:
+
+            printf("Remove Employee\n");
+            printf("===============\n");
+
+            FOUND = 0;
+            do {
+
+                printf("Enter Employee ID: ");
+                scanf("%d", &tempId);
+
+                for (i = 0; i < SIZE; i++) {
+                    if (tempId == emp[i].idNumber) {
+
+                        printf("Employee %d will be removed\n\n", emp[i].idNumber);
+                        emp[i].idNumber = 0;
+                        //emp[i].idNumber = emp[i+1].idNumber;
+                        //emp[i] = emp[i + 1];
+
+                        counter--;
+                        size = size - 1;
+                        FOUND = 1;
+                    }
+                }
+            } while (FOUND == 0);
+
+
+
+            break;
+        default:
+            printf("ERROR: Incorrect Option: Try Again\n\n");
+        }
+
+
+
+    } while (option != 0);
+
+    printf("Exiting Employee Data Program. Good Bye!!!\n");
+
+
+    return 0;
+}
