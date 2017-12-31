@@ -1,0 +1,69 @@
+/*
+Name: Hoh-il (Julian) Synn
+Student number: 142176163
+Test 1
+Section: IPC144SWW
+Date: Dec 1, 2017
+*/
+
+
+
+#include <stdio.h>
+
+//define size
+#define SIZE 3
+
+//declare struct
+struct Student {
+	int number;
+	float mark;
+};
+
+int main() {
+	struct Student section[SIZE];
+
+	int y = 0;
+	float averageMark = 0;
+	float highestMark = 0;
+	int highestStudent = 0;
+	
+
+	for (y = 0; y < SIZE; y++) {
+	
+	printf("Student %d, enter student ID: ", y + 1);
+	scanf("%d", &section[y].number);
+
+	printf("Student %d, enter mark:", y + 1);
+	scanf("%f", &section[y].mark);
+	}
+
+
+
+
+	//average mark goes here
+	printf("******* Summary *******\n");
+
+	y = 0;
+	for (y = 0; y < SIZE; y++){
+		averageMark += section[y].mark;
+		if (section[y].mark > highestMark){
+			highestMark = section[y].mark;
+			highestStudent = section[y].number;
+			}
+	}
+	averageMark /= SIZE;
+
+	printf("The average for this section is: %.2f\n", averageMark);
+
+
+
+
+	//the end
+	printf("CONGRATULATIONS!\n");
+	printf("Student %d got the highest mark %.2f\n", highestStudent, highestMark);
+
+
+
+	return 0;
+
+}
