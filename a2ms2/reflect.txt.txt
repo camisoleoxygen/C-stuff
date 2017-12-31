@@ -1,0 +1,8 @@
+1. A function is a group of statements that together perform a task. Every C program has at least one function. You can
+divide the code into separate functions and each function will perform a certain task. This is useful 
+because having a function would mean that the tasks that are being assigned are carried out and are written with efficient
+code in mind.
+
+2. The contact functions are used to organize the code in the program. The 'contacts' and 'contacthelpers' holds 
+the function definitions for the structs. If we need to use the code then we only have to include one or a few of the 
+files, which is more efficient.
