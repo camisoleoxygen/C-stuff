@@ -89,7 +89,7 @@ void getAddress(struct Address *address) {
 
 	//city
 	printf("Please enter the contact's city: ");
-	scanf("%40s", address->city);
+	scanf("%40[^\n]s", address->city);
 	clearKeyboard();
 }
 
