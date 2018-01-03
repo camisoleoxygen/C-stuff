@@ -118,25 +118,32 @@ void getNumbers(struct Numbers* numbers) {
 		//scanf("%20s", numbers->home);
 		//clearKeyboard();
 	}
-
+	else
+		numbers->homenumber[0] = '\0';
 
 	//business num
 	printf("Do you want to enter a business phone number? (y or n): ");
 	ask = yes();
+	
 	if (ask == 1) {
 		printf("Please enter the contact's business phone number: ");
 		getTenDigitPhone(numbers->businessnumber);
 		//scanf("%20s", numbers->business);
 		//clearKeyboard();
 	}
+	else
+		numbers->businessnumber[0]='\0';
+		
+
+
 }
 
 
 
 // getContact
-void getContact(struct Contacts Contacts[]) {
-	getName(&(Contacts->name));
-	getAddress(&(Contacts->address));
-	getNumbers(&(Contacts->numbers));
+void getContact(struct Contacts Contacts) {
+	getName(&Contacts.name);
+	getAddress(&Contacts.address);
+	getNumbers(&Contacts.numbers);
 
 }
