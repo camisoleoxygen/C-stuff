@@ -86,7 +86,7 @@ void getNumbers(struct Numbers *);
 
 
 // getContact:
-void getContact(struct Contacts *);
+void getContact(struct Contacts );
 
 
 
