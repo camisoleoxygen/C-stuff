@@ -228,7 +228,7 @@ void ContactManagerSystem(void)
 
 		case 4:
 			deleteContact(CONTACTS, MAXCONTACTS);
-			printf("\n");
+			//printf("\n");
 			pause();
 			printf("\n");
 			break;
@@ -317,7 +317,7 @@ void displayContactHeader(void)
 {
 	
 	printf("+-----------------------------------------------------------------------------+\n");
-	printf("|                               Contacts Listing                              |\n");
+	printf("|                              Contacts Listing                               |\n");
 	printf("+-----------------------------------------------------------------------------+\n");
 }
 
@@ -328,7 +328,7 @@ void displayContactHeader(void)
 void displayContactFooter(int totalContacts)
 {
 	printf("+-----------------------------------------------------------------------------+\n");
-	printf("Total Contacts: %d\n", totalContacts);
+	printf("Total contacts: %d\n", totalContacts);
 }
 
 
@@ -344,7 +344,7 @@ void displayContact(const struct Contacts *Contacts) {
 	}
 
 	// phone numbers
-	printf("    C: %-10s H: %-10s B: %-10s\n", Contacts->numbers.cellnumber, Contacts->numbers.homenumber, Contacts->numbers.businessnumber);
+	printf("    C: %-10s   H: %-10s   B: %-10s\n", Contacts->numbers.cellnumber, Contacts->numbers.homenumber, Contacts->numbers.businessnumber);
 
 	// address numbers
 	if (Contacts->address.apartmentNumber > 0) {
@@ -492,7 +492,7 @@ void deleteContact(struct Contacts Contacts[], int length) {
 		printf("\nCONFIRM: Delete this contact? (y or n): ");
 		if (yes() == 1) {
 			Contacts[ind].numbers.cellnumber[0] = '\0';
-			printf("--- Contact deleted! ---");
+			printf("--- Contact deleted! ---\n");
 			currentContactIndex = currentContactIndex - 1;
 		}
 	}
