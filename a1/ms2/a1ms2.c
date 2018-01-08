@@ -1,7 +1,4 @@
 /* -------------------------------------------
-Name: Julian Synn
-Student number: 142176163
-Email: jsynn@myseneca.ca
 Section: IPC144SWW
 Date: Oct 27, 2017
 ----------------------------------------------
