@@ -1,6 +1,4 @@
 /*
-Name: Hoh-il (Julian) Synn
-Student number: 142176163
 Test 1
 Section: IPC144SWW
 Date: Dec 1, 2017
