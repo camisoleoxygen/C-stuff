@@ -1,0 +1,10 @@
+1. If the size of an array becomes larger, allocating memory is wise because it allows the system memory to be used more
+efficiently by multiple processes in the code.
+
+2.
+
+3. 
+
+4. I learned how to use dynamic memory and try to use overloading in order to make the code work properly. Using
+overload would help display the output properly and allocating and deallocating would also help with the code in case there
+are variables that need to be separated properly.
