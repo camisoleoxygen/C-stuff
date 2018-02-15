@@ -79,10 +79,11 @@ namespace sict {
 	}
 
 	const char* Passenger::name() const {
+		return 0;
 	}
 
 	bool Passenger::canTravelWith(const Passenger&) const {
-		
+		return 0;
 	}
 
 }
