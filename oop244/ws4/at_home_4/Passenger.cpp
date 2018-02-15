@@ -1,4 +1,3 @@
-// TODO: add file header comments here
 // Workshop 4 - Constructors - At home
 // Passenger.cpp
 // Hoh-il (Julian) Synn
@@ -27,9 +26,9 @@ namespace sict {
 
 	Passenger::Passenger(const char* passenger_char, const char* destination_char) {
 		if (passenger_char == nullptr || destination_char == nullptr || passenger_char[0] == '\0' &&
-			destination_char == '\0') {
-			strcpy_s(passengerName, passenger_char);
-			strcpy_s(destination, destination_char);
+			destination_char[0] == '\0') {
+			strcpy(passengerName, passenger_char);
+			strcpy(destination, destination_char);
 		}
 		else {
 			*this = Passenger();
@@ -40,7 +39,7 @@ namespace sict {
 	Passenger::Passenger(const char* passenger_char, const char* destination_char, int year_int,
 		int month_int, int day_int) {
 
-		if (passenger_char == nullptr || destination_char == nullptr ||  passenger_char[0] == '\0' &&
+		if (passenger_char == nullptr || destination_char == nullptr ||  passenger_char[0] == '\0' ||
 			destination_char[0] == '\0' || year_int < 2017 || year_int > 2020 || month_int < 1
 			|| month_int > 12 || day_int < 1 || day_int > 31) {
 			*this = Passenger();
@@ -48,8 +47,8 @@ namespace sict {
 			}
 
 			else {
-				strcpy_s(passengerName, passenger_char);
-				strcpy_s(destination, destination_char);
+				strcpy(passengerName, passenger_char);
+				strcpy(destination, destination_char);
 				year = year_int;
 				month = month_int;
 				day = day_int;
@@ -73,17 +72,26 @@ namespace sict {
 		}
 
 		else {
-			cout << passengerName << " - " << destination << "on " << year << "/" << month <<
+			cout << passengerName << " - " << destination << " on " << year << "/" << month <<
 				"/" << day << endl;
 		}
 	}
 
 	const char* Passenger::name() const {
-		return 0;
+		if (isEmpty() == false) {
+			return passengerName;
+		}
 	}
 
-	bool Passenger::canTravelWith(const Passenger&) const {
-		return 0;
+	bool Passenger::canTravelWith(const Passenger& pass) const {
+		// if statement
+		if (strcmp(destination, pass.destination) == 0 && year == pass.year &&
+			month == pass.month && day == pass.day) {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 
 }
