@@ -25,8 +25,8 @@ namespace sict {
 	}
 
 	Passenger::Passenger(const char* passenger_char, const char* destination_char) {
-		if (passenger_char == nullptr || destination_char == nullptr || passenger_char[0] == '\0' &&
-			destination_char[0] == '\0') {
+		if (passenger_char == nullptr || destination_char == nullptr || (passenger_char[0] == '\0' &&
+			destination_char[0]) == '\0') {
 			strcpy(passengerName, passenger_char);
 			strcpy(destination, destination_char);
 		}
@@ -72,7 +72,7 @@ namespace sict {
 		}
 
 		else {
-			cout << passengerName << " - " << destination << " on " << year << "/" << month <<
+			cout << passengerName << " - " << destination << " on " << year << "/" << "0" << month <<
 				"/" << day << endl;
 		}
 	}
@@ -81,6 +81,7 @@ namespace sict {
 		if (isEmpty() == false) {
 			return passengerName;
 		}
+		return false;
 	}
 
 	bool Passenger::canTravelWith(const Passenger& pass) const {
