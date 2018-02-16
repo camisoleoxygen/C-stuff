@@ -1,15 +1,23 @@
-1.
+1. Initializing an object's variables in a constructor ensuring that the object has a defined state. Using this method
+objects do not break and behave as expected when they are created.
 
-2.
+2. I minimized code duplication by creating different functions that would fit accordingly and put them on the header file,
+and namespaces were included so that code redundancy would be reduced even further.
 
-3.
+3. We created public functions to access the private data. In the header file, the canTravelWith function was placed in
+the public function section, so it was able to access private data.
 
-4. 
+4. We need an if statement for each strcpy so that the entire program can function properly. 
 
 5. I learned about how to use constructors and how they can be implemented in the function. They can be incorporated with 
 queries as well which I did not know about at first. 
 
 ===========================================================================================================================
 Quiz 2 Reflection:
+Question 2 
 
-4. 
+char n[5];
+Hello* greeting = nullptr;
+greeting = new Hello[n];
+delete[] greeting;
+greeting = nullptr;

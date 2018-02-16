@@ -66,7 +66,6 @@ int main()
 			cout << david.name() << " can travel with " << friends[i].name() << endl;
 	}
 	cout << "----------------------------------------" << endl << endl;
-
-	system("pause");
+	
 	return 0;
 }

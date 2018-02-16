@@ -1,4 +1,3 @@
-// TODO: add file header comments here
 // Workshop 4 - Constructors - At home
 // Passenger.h
 // Hoh-il (Julian) Synn
