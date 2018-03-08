@@ -1,7 +1,20 @@
-1.
+1. It should not return a fraction object because it would contradict with the functions that are "constant" and since the 
+references would only be temporary it would not work with the functions that were implemented.
 
-2.
+2. The temporary objects are Fraction a, b, c, d, e.
 
-3.
+3. Simplifications made were pointers that were implemented in the functions, and the overload functions such as the 
+operator* were used to simplify the program in general. This would create a more efficient code structure in the process.
 
-4.
+4. I learned about overloading operators and how they function in a program properly. I also learned about how fractions 
+can be implemented into function programs so different output and values can be displayed as well, which was very
+interesting to me.
+
+===========================================================================================================================
+Quiz 3 Reflection
+
+1. How does the compiler recognize two functions that have been overloaded?
+Answer: It recognizes with the data types and number of parameters.
+
+2. What does a C++ reference parameter do?
+Answer: It receives the address of the actual parameter, like a c++ object, like a pointer.
