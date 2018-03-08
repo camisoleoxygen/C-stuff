@@ -27,15 +27,23 @@ namespace AMA {
 		int dateComparator;
 		int errorState;
 
+		void errCode(int errorCode);
 
 		int mdays(int, int)const;
 
-		void errCode(int errorCode);
 
 	public:
 		Date();
 		Date(int year_1, int month_1, int day_1);
 
+		bool operator==(const Date& rhs) const;
+		bool operator!=(const Date& rhs) const;
+		bool operator<(const Date& rhs) const;
+		bool operator>(const Date& rhs) const;
+		bool operator<=(const Date& rhs) const;
+		bool operator>=(const Date& rhs) const;
+
+		int errCode() const;
 	};
 
 

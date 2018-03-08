@@ -16,6 +16,7 @@ namespace AMA {
 		return days[month] + int((month == 1)*((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0));
 	}
 
+	//Date class
 	void Date::errCode(int errorCode) {
 		errorState = errorCode;
 	}
@@ -30,16 +31,116 @@ namespace AMA {
 
 	}
 
-	Date::Date(int year_1, int month_1, int day_1) {
+
+	Date::Date(int year_1, int month_1, int day_1) { //constructor, same name, no return type
 		if (min_year < year_1 && year_1 < max_year)
 			year = year_1;
-
 		else {
 			errorState = YEAR_ERROR;
 		}
 
-		//if statements for month, day
+		//if statements for month
+		if (month_1 >= 1 && month_1 <= 12)
+			month = month_1;
+		else {
+			errorState = MON_ERROR;
+		}
+
+		//if statement for day
+		int numDays = mdays(month_1, year_1);
+
+		if (numDays >= 1 && numDays <= 31)
+			day = numDays;
+
+		else {
+			errorState = DAY_ERROR;
+		}
+
+		dateComparator = year * 372 + month * 13 + day;
+
+		if (errorState == YEAR_ERROR || errorState == MON_ERROR || errorState == DAY_ERROR) {
+			day = 0;
+			year = 0;
+			month = 0;
+			dateComparator = 0;
+			errorState = NO_ERROR;
+		}
+
 	}
+
+	//operator == function
+	bool Date::operator==(const Date& rhs) const {
+		if (day == rhs.day && month == rhs.month && year == rhs.year && errorState == rhs.errorState) {
+			return true;
+		}
+
+		else {
+			return false;
+		}
+	}
+
+	//operator != function
+	bool Date::operator!=(const Date& rhs) const {
+		if (day != rhs.day && month != rhs.month && year != rhs.year 
+			&& errorState != rhs.errorState) {
+			return true;
+		}
+
+		else {
+			return false;
+		}
+	}
+
+	//operator < function
+	bool Date::operator<(const Date& rhs) const {
+		if (day < rhs.day && month < rhs.month && year < rhs.year) {
+			return true;
+		}
+
+		else {
+			return false;
+		}
+	}
+
+	//operator >
+	bool Date::operator>(const Date& rhs) const {
+		if (day > rhs.day && month > rhs.month && year > rhs.year) {
+			return true;
+		}
+
+		else {
+			return false;
+		}
+	}
+
+
+
+	//operator <=
+	bool Date::operator<=(const Date& rhs) const {
+		if (day <= rhs.day && month <= rhs.month && year <= rhs.year) {
+			return true;
+		}
+
+		else {
+			return false;
+		}
+	}
+
+
+	//operator >=
+	bool Date::operator>=(const Date& rhs) const {
+		if (day >= rhs.day && month >= rhs.month && year >= rhs.year) {
+			return true;
+		}
+
+		else {
+			return false;
+		}
+	}
+
+	//errorstate
+
+
 
 
 
