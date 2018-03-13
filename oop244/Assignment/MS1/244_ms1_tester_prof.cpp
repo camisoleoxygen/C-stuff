@@ -2,8 +2,6 @@
 // Date: Mar 5, 2018
 // Author: Julian (Hoh-il) Synn
 //
-// This program test the student implementation of the Date class
-// for submission.
 //
 // For you final test before submission:
 //      DO NOT MODIFY THIS FILE IN ANY WAY
@@ -294,7 +292,7 @@ int main() {
 		cout << "You did not pass all the tests, keep working on your project!" << endl;
 		ret = 1;
 	}
-
+	system("pause");
 	return ret;
 }
 

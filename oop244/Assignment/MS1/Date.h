@@ -12,7 +12,7 @@
 #define YEAR_ERROR 2  
 #define MON_ERROR 3 
 #define DAY_ERROR 4 
-
+#include <iostream>
 
 namespace AMA {
 
@@ -44,7 +44,21 @@ namespace AMA {
 		bool operator>=(const Date& rhs) const;
 
 		int errCode() const;
+		bool bad() const;
+
+		//data for console
+		std::istream& read(std::istream& istr);
+		std::ostream& write(std::ostream& ostr) const;
+
 	};
+
+
+	//operator<<
+	std::ostream& operator<<(std::ostream& os, const Date& d);
+
+
+	//operator>>
+	std::istream& operator>>(std::istream& is, Date& d);
 
 
 

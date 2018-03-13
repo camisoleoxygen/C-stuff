@@ -4,6 +4,9 @@
 // Author: Julian (Hoh-il) Synn
 /////////////////////////////////////////////////////////////////
 #include "Date.h"
+#include <iostream>
+using namespace std;
+
 
 namespace AMA {
 
@@ -33,6 +36,11 @@ namespace AMA {
 
 
 	Date::Date(int year_1, int month_1, int day_1) { //constructor, same name, no return type
+		//dateComparator = year * 372 + month * 13 + day;
+		//year = year_1;
+		//month = month_1;
+		//day = day_1;
+		//errorState = NO_ERROR;
 		if (min_year < year_1 && year_1 < max_year)
 			year = year_1;
 		else {
@@ -65,7 +73,7 @@ namespace AMA {
 			dateComparator = 0;
 			errorState = NO_ERROR;
 		}
-
+		//cout << "Constructor" << year << month << day << endl;
 	}
 
 	//operator == function
@@ -138,13 +146,77 @@ namespace AMA {
 		}
 	}
 
-	//errorstate
+	//returns errorstate as an error code value
+	int Date::errCode() const {
+		return errorState;
+	}
+
+	//returns true if not "NO ERROR"
+	bool Date::bad() const {
+		if (errorState != NO_ERROR)
+			return true;
+
+		else {
+			return false;
+		}
+	}
+
+	//read and fail
+	std::istream& Date::read(std::istream& istr) {
+		char checkYear;
+		char checkMonth;
+		cin >> year >> checkYear >> month >> checkMonth >> day;
+		cout << year << checkYear << month << checkMonth << day << endl;
+		if (cin.fail()) {
+			errCode(CIN_FAILED);
+			return istr;
+		}
+
+		if (year < min_year || year > max_year) {
+			errCode(YEAR_ERROR);
+			return istr;
+		}
+
+		if (month < 1 || month > 12) {
+			errCode(MON_ERROR);
+			return istr;
+		}
+
+		if (day < 1 || day > mdays(month, year)) {
+			errCode(DAY_ERROR);
+			return istr;
+		}
+
+		else {
+			errCode(NO_ERROR);
+			return istr;
+		}
+	}
+
+	
+	std::ostream& Date::write(std::ostream& ostr) const {
+		ostr << year << "/";
+		if (month < 10) {
+			ostr << "0";
+		}
+		ostr << month << "/";
+		if (day < 10) {
+			ostr << "0";
+		}
+		ostr << day;
+		return ostr;
+	}
+
+	//helper functions <<
+	std::ostream& operator<<(std::ostream& os, const Date& d) {
+		return d.write(os);
+	}
 
 
-
-
-
-
+	//helper functions >>
+	std::istream& operator>>(std::istream& is, Date& d) {
+		return d.read(is);
+	}
 
 
 
