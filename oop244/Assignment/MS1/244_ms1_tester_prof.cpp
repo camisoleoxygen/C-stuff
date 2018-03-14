@@ -1,11 +1,22 @@
-// Final Project Milestone 1 - Date Module Tester 
-// Date: Mar 5, 2018
-// Author: Julian (Hoh-il) Synn
-//
+// Final Project Milestone 1 - Date Module Tester
+// Version 3.3
+// ms1_tester.cpp
+// Date	2018-03-10
+// Author	Chris Szalwinski, Fardad Soleimanloo
+// Description
+// This program test the student implementation of the Date class
+// for submission.
 //
 // For you final test before submission:
 //      DO NOT MODIFY THIS FILE IN ANY WAY
 //
+//
+// Revision History
+// --------------------------------------------------------------
+// Name               Date                 Reason
+// CS                 2017-10-11           Fall semester upgrade
+// CS                 2018-03-02           Final Draft 20181
+// CS                 2018-03-10           entered -> accepted
 /////////////////////////////////////////////////////////////////
 #include <iostream>
 #include <cstring>
@@ -223,7 +234,7 @@ int main() {
 		cout << "Testing year validation, " << endl;
 		cout << "Please enter the following string \"10/1/1\": ";
 		cin >> A;
-		cout << "You entered: " << A << endl;
+		cout << "You accepted: " << A << endl;
 		if (A.errCode() == YEAR_ERROR) {
 			cout << "passed!" << endl;
 		}
@@ -240,7 +251,7 @@ int main() {
 		cout << "Testing month validation, " << endl;
 		cout << "Please enter the following string \"2000/13/1\": ";
 		cin >> A;
-		cout << "You entered: " << A << endl;
+		cout << "You accepted: " << A << endl;
 		if (A.errCode() == MON_ERROR) {
 			cout << "Passed" << endl;
 		}
@@ -257,7 +268,7 @@ int main() {
 		cout << "Testing day validation, " << endl;
 		cout << "Please enter the following string \"2000/1/50\": ";
 		cin >> A;
-		cout << "You entered: " << A << endl;
+		cout << "You accepted: " << A << endl;
 		if (A.errCode() == DAY_ERROR) {
 			cout << "Passed!" << endl;
 		}
@@ -274,7 +285,7 @@ int main() {
 		cout << "Testing day validation, leap year:" << endl;
 		cout << "Please enter the following string \"2016/2/29\": ";
 		cin >> A;
-		cout << "You entered: " << A << endl;
+		cout << "You accepted: " << A << endl;
 		if (A.errCode() == DAY_ERROR) {
 			cout << "Your read function does not check the day entry limits using mday()" << endl;
 			ok = false;

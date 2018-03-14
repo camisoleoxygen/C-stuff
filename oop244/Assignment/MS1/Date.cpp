@@ -57,8 +57,8 @@ namespace AMA {
 		//if statement for day
 		int numDays = mdays(month_1, year_1);
 
-		if (numDays >= 1 && numDays <= 31)
-			day = numDays;
+		if (day_1 >= 1 && day_1 <= numDays)
+			day = day_1;
 
 		else {
 			errorState = DAY_ERROR;
@@ -78,7 +78,9 @@ namespace AMA {
 
 	//operator == function
 	bool Date::operator==(const Date& rhs) const {
-		if (day == rhs.day && month == rhs.month && year == rhs.year && errorState == rhs.errorState) {
+		//if (day == rhs.day && month == rhs.month && year == rhs.year && errorState == rhs.errorState) {
+		if (dateComparator == rhs.dateComparator) {
+
 			return true;
 		}
 
@@ -89,8 +91,9 @@ namespace AMA {
 
 	//operator != function
 	bool Date::operator!=(const Date& rhs) const {
-		if (day != rhs.day && month != rhs.month && year != rhs.year 
-			&& errorState != rhs.errorState) {
+		/*if (day != rhs.day && month != rhs.month && year != rhs.year 
+			&& errorState != rhs.errorState) {*/
+		if (dateComparator != rhs.dateComparator) {
 			return true;
 		}
 
@@ -101,7 +104,8 @@ namespace AMA {
 
 	//operator < function
 	bool Date::operator<(const Date& rhs) const {
-		if (day < rhs.day && month < rhs.month && year < rhs.year) {
+		//if (day < rhs.day || month < rhs.month || year < rhs.year) {
+		if (dateComparator < rhs.dateComparator) {
 			return true;
 		}
 
@@ -112,7 +116,8 @@ namespace AMA {
 
 	//operator >
 	bool Date::operator>(const Date& rhs) const {
-		if (day > rhs.day && month > rhs.month && year > rhs.year) {
+		//if (day > rhs.day || month > rhs.month || year > rhs.year) {
+		if (dateComparator > rhs.dateComparator) {
 			return true;
 		}
 
@@ -165,32 +170,48 @@ namespace AMA {
 	std::istream& Date::read(std::istream& istr) {
 		char checkYear;
 		char checkMonth;
-		cin >> year >> checkYear >> month >> checkMonth >> day;
-		cout << year << checkYear << month << checkMonth << day << endl;
-		if (cin.fail()) {
-			errCode(CIN_FAILED);
-			return istr;
+		//istr >> year >> checkYear >> month >> checkMonth >> day;
+		//cout << year << checkYear << month << checkMonth << day << endl;
+		istr >> year;
+		if (istr.get() != '/') {
+			errorState = CIN_FAILED;
 		}
+
+		istr >> month;
+		if (istr.get() != '/') {
+			errorState = CIN_FAILED;
+		}
+
+		istr >> day;
+		if (istr.fail()) {
+			errorState = CIN_FAILED;
+		}
+		
+
+
 
 		if (year < min_year || year > max_year) {
-			errCode(YEAR_ERROR);
-			return istr;
+			errorState = YEAR_ERROR;
+			//return istr;
 		}
 
-		if (month < 1 || month > 12) {
-			errCode(MON_ERROR);
-			return istr;
+		else if (month < 1 || month > 12) {
+			errorState = MON_ERROR;
+			//return istr;
 		}
 
-		if (day < 1 || day > mdays(month, year)) {
-			errCode(DAY_ERROR);
-			return istr;
+		else if (day < 1 || day > mdays(month, year)) {
+			errorState = DAY_ERROR;
+			//return istr;
 		}
 
-		else {
-			errCode(NO_ERROR);
-			return istr;
-		}
+
+		return istr;
+
+		//else {
+		//	errCode(CIN_FAILED);
+		//	return istr;
+		//}
 	}
 
 	
