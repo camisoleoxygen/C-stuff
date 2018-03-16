@@ -168,41 +168,47 @@ namespace AMA {
 
 	//read and fail
 	std::istream& Date::read(std::istream& istr) {
-		char checkYear;
-		char checkMonth;
+		//char checkYear;
+		//char checkMonth;
 		//istr >> year >> checkYear >> month >> checkMonth >> day;
 		//cout << year << checkYear << month << checkMonth << day << endl;
-		istr >> year;
+		int year123;
+		int month123;
+		int day123;
+
+		istr >> year123;
+		if (istr.get() != '/') { // fix for later
+			errorState = CIN_FAILED;
+		}
+
+		istr >> month123;
 		if (istr.get() != '/') {
 			errorState = CIN_FAILED;
 		}
 
-		istr >> month;
-		if (istr.get() != '/') {
-			errorState = CIN_FAILED;
-		}
-
-		istr >> day;
+		istr >> day123;
 		if (istr.fail()) {
 			errorState = CIN_FAILED;
 		}
-		
-
-
-
-		if (year < min_year || year > max_year) {
+		else if (year123 < min_year || year123 > max_year) {
 			errorState = YEAR_ERROR;
-			//return istr;
+
 		}
 
-		else if (month < 1 || month > 12) {
+		else if (month123 < 1 || month123 > 12) {
 			errorState = MON_ERROR;
-			//return istr;
+
 		}
 
-		else if (day < 1 || day > mdays(month, year)) {
+		else if (day123 < 1 || day123 > mdays(month123, year123)) {
 			errorState = DAY_ERROR;
-			//return istr;
+
+		}
+
+		else {
+			year = year123;
+			month = month123;
+			day = day123;
 		}
 
 

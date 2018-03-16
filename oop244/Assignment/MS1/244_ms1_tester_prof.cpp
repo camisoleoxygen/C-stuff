@@ -303,7 +303,7 @@ int main() {
 		cout << "You did not pass all the tests, keep working on your project!" << endl;
 		ret = 1;
 	}
-	system("pause");
+	//system("pause");
 	return ret;
 }
 
