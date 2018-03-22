@@ -18,7 +18,6 @@
 #include <iostream>
 #include "ErrorState.h"
 
-
 using namespace std;
 using namespace AMA;
 
