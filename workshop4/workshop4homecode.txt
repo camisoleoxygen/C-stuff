@@ -1,5 +1,5 @@
 // Name: Hoh-il (Julian) Synn
-// Student Number: 142176163
+
 // Email: jsynn@myseneca.ca
 // Section: IPC144SWW
 // Workshop: 4; Arrays
