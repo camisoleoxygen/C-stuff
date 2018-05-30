@@ -1,5 +1,5 @@
 //Hoh-il (Julian) Synn
-//142176163
+
 //jsynn@myseneca.ca
 //Assignment 3 - While loops and If statements
 
