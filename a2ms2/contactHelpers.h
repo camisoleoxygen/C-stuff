@@ -1,6 +1,6 @@
 /* ------------------------------------------------------------------
 Name: Julian (Hoh-il) Synn
-Student number: 142176163
+
 Email: jsynn@myseneca.ca
 Section: IPC144-SWW
 Date: Dec 10, 2017
