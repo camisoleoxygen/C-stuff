@@ -15,7 +15,7 @@ int main(void) {
 	float gst = 1.13;
 
 
-	printf("Please enter the amount to be paid: ");
+	printf("Please enter the really dank amount to be paid: ");
 	scanf("%f", &paid);
 
 
